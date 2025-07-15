@@ -1,9 +1,9 @@
-// server.js
+
 const {Server} = require ('socket.io');
 
 const io = new Server (8000, {
   cors: {
-    origin: '*', // replace with your frontend domain in production
+    origin: '*', 
   },
 });
 
