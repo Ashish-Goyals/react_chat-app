@@ -1,4 +1,3 @@
-// src/pages/Room.jsx
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useSocket } from '../context/SocketProvider';
 import peer from '../service/peer';
@@ -61,8 +60,6 @@ const handleCallUser = useCallback(async () => {
     });
 
     setMyStream(stream);
-
-    // Add tracks BEFORE creating offer
     peer.addTracks(stream);
 
     const offer = await peer.getOffer();
@@ -83,7 +80,6 @@ const handleIncomingCall = useCallback(async ({ from, offer }) => {
 
   setMyStream(stream);
 
-  // Add tracks BEFORE answering
   peer.addTracks(stream);
 
   const answer = await peer.getAnswer(offer);
